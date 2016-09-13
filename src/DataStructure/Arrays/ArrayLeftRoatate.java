@@ -20,7 +20,7 @@ public class ArrayLeftRoatate {
             for(int j=0; j<size-1;j++){
                 array[j] = array[j+1];
             }
-            array[size] = temp;
+            array[size-1] = temp;
         }
 
         for(int i=0; i<size; i++){
