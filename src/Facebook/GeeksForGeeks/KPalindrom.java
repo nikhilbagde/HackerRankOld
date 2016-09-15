@@ -1,4 +1,4 @@
-package GeeksForGeeks;
+package Facebook.GeeksForGeeks;
 
 /**
  * Created by Nikhil on 9/14/2016.
@@ -9,8 +9,6 @@ public class KPalindrom {
     }
     public static boolean is_k_pallin(String s,int k){
         int diffCounter = 0;
-        //System.out.print(s.length);
-        //Your code here
 
         for(int i= s.length()-1 ; i>= s.length()/2 ; i--){
             if(s.charAt(i) != s.charAt( (s.length()-1) -i)){
