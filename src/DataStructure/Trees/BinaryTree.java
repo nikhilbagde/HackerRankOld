@@ -1,20 +1,22 @@
 package DataStructure.Trees;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * Created by Nikhil on 9/14/2016.
  */
-public class BST {
-    Node root;
+public class BinaryTree {
+    private Node root;
 
-    BST(){
+    BinaryTree(){
         root = null;
     }
-    BST(int data){
+    BinaryTree(int data){
         root.data = data;
         root.left = root.right = root.parent = null;
     }
 
-    //TO get Top view
     // https://www.hackerrank.com/challenges/tree-top-view
     void goLeft(Node node){
         if(node.left != null){
@@ -81,5 +83,46 @@ public class BST {
         }
 
     }
+
+    //https://www.hackerrank.com/challenges/tree-level-order-traversal
+       /*
+
+    class Node
+       int data;
+       Node left;
+       Node right;
+   */
+    void LevelOrder(Node root)
+    {
+       /*printLevelorder(tree)
+    1) Create an empty queue q
+    2) temp_node = root //start from root
+        3) Loop while temp_node is not NULL
+        a) print temp_node->data.
+        b) Enqueue temp_node’s children (first left then right children) to q
+        c) Dequeue a node from q and assign it’s value to temp_node
+    */
+       //We can use array implementation of queue too, here I have used linked list.
+        //Its easy b/c I don't have to specify length as in case of array
+
+        Queue<Node> queue = new LinkedList<Node>();
+        queue.add(root);
+
+        while(!queue.isEmpty()){
+            // Poll() is used for remove element from queue.
+            // Read your java collection framework notes for detail.
+            Node tempNode = queue.poll();
+            System.out.print(tempNode.data + " ");
+
+            if(tempNode.left != null){
+                queue.add(tempNode.left);
+            }
+            if(tempNode.right != null){
+                queue.add(tempNode.right);
+            }
+        }
+
+    }
+
 
 }
